@@ -1,10 +1,10 @@
 import React from "react";
 
 const Pagination = ({ totalPages, currentPage, setCurrentPage }) => {
-  if (totalPages <= 1) return null; 
+  if (totalPages <= 1) return null;
 
   return (
-    <div className="flex items-center justify-center mt-6 space-x-4">
+    <div className="flex items-center justify-center mt-6 space-x-4 overflow-x-auto">
       <button
         className={`px-4 py-2 rounded-lg font-semibold transition duration-300 ${
           currentPage === 1
@@ -18,7 +18,7 @@ const Pagination = ({ totalPages, currentPage, setCurrentPage }) => {
       </button>
 
       <span className="text-lg font-semibold text-gray-700">
-        {currentPage} out of {totalPages}
+        {currentPage} of {totalPages}
       </span>
 
       <button

@@ -10,13 +10,11 @@ const DataTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 3;
 
-  
   const filteredData = users.filter((user) =>
     Object.entries(searchFilters).every(([key, value]) =>
       value.trim() ? user[key]?.toLowerCase().includes(value.toLowerCase()) : true
     )
   );
-
 
   const sortedData = [...filteredData].sort((a, b) => {
     if (!sortColumn) return 0;
@@ -33,11 +31,9 @@ const DataTable = () => {
   const paginatedData = sortedData.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
 
   return (
-    <div className="p-4">
-      
+    <div className="overflow-x-auto p-4">
       <SearchBar setSearchFilters={setSearchFilters} />
 
-     
       <table className="min-w-full bg-white shadow-md rounded-lg mt-4">
         <thead>
           <tr className="bg-gray-200">
@@ -73,7 +69,6 @@ const DataTable = () => {
         </tbody>
       </table>
 
-     
       <Pagination totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
     </div>
   );
