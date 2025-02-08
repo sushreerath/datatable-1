@@ -7,7 +7,7 @@ const DataTable = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortConfig, setSortConfig] = useState([{ key: "name", direction: "asc" }]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(2);
 
 
   const filteredData = users.filter((user) =>
@@ -92,7 +92,7 @@ const DataTable = () => {
             setCurrentPage(1);
           }}
         >
-          {[10, 25, 50, 100].map((size) => (
+          {[2,5,7,10].map((size) => (
             <option key={size} value={size}>
               {size}
             </option>
